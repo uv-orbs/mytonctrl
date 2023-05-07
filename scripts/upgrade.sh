@@ -8,7 +8,8 @@ if [ "$(id -u)" != "0" ]; then
 fi
 
 # Set default arguments
-author="ton-blockchain"
+#author="ton-blockchain"
+author="uv-orbs"
 repo="ton"
 branch="master"
 srcdir="/usr/src/"
