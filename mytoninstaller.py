@@ -305,11 +305,12 @@ def FirstNodeSettings():
     os.makedirs(keysDir, exist_ok=True)
 
     # UV retention tweek - 6 month in seconds
-    syncBefore = 3600 * 24 * 30 * 6
+    # syncBefore = 3600 * 24 * 30 * 6 =
+
     # Прописать автозагрузку
     # Register autoload
     cpus = psutil.cpu_count() - 1
-    cmd = "{validatorAppPath} --threads {cpus} --daemonize --global-config {globalConfigPath} --db {tonDbDir} --logname {tonLogPath} --state-ttl 604800 --sync-before {syncBefore} --verbosity 1"
+    cmd = "{validatorAppPath} --threads {cpus} --daemonize --global-config {globalConfigPath} --db {tonDbDir} --logname {tonLogPath} --state-ttl 604800 --sync-before 15552000 --verbosity 1"
     cmd = cmd.format(validatorAppPath=validatorAppPath, globalConfigPath=globalConfigPath,
                      tonDbDir=tonDbDir, tonLogPath=tonLogPath, cpus=cpus)
     # post="/usr/bin/python3 /usr/src/mytonctrl/mytoncore.py -e \"validator down\""
