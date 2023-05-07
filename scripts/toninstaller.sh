@@ -133,7 +133,7 @@ echo -e "${COLOR}[2/6]${ENDC} Cloning github repository"
 cd $SOURCES_DIR
 rm -rf $SOURCES_DIR/ton
 rm -rf $SOURCES_DIR/mytonctrl
-git clone --recursive https://github.com/uv-orbs/ton.git
+git clone --recursive https://github.com/ton-blockchain/ton.git
 git clone --recursive https://github.com/uv-orbs/mytonctrl.git
 
 # Подготавливаем папки для компиляции
