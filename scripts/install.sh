@@ -44,12 +44,14 @@ done
 
 
 # Проверка режима установки
+# Checking the installation mode
 if [ "${mode}" != "lite" ] && [ "${mode}" != "full" ]; then
 	echo "Run script with flag '-m lite' or '-m full'"
 	exit 1
 fi
 
 # Проверка мощностей
+# Capacity check
 cpus=$(lscpu | grep "CPU(s)" | head -n 1 | awk '{print $2}')
 memory=$(grep MemTotal /proc/meminfo | awk '{print $2}')
 if [ "${mode}" = "lite" ] && [ "$ignore" = false ] && ([ "${cpus}" -lt 2 ] || [ "${memory}" -lt 2000000 ]); then
@@ -90,7 +92,8 @@ if [ -f "${file1}" ] && [ -f "${file2}" ] && [ -f "${file3}" ]; then
 	git clone --recursive https://github.com/ton-blockchain/mytonctrl.git
 else
 	rm -f toninstaller.sh
-	wget https://raw.githubusercontent.com/ton-blockchain/mytonctrl/master/scripts/toninstaller.sh
+	# changed to uv-orbs for tweek
+	wget https://raw.githubusercontent.com/uv-orbs/mytonctrl/master/scripts/toninstaller.sh
 	bash toninstaller.sh -c "${config}"
 	rm -f toninstaller.sh
 fi
